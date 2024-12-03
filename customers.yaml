@@ -1,0 +1,188 @@
+name: customers
+tables:
+  - name: CUSTOMERS
+    description: This table stores information about customers, including their customer
+      ID, name, lifetime order count, and lifetime spend.__
+    base_table:
+      database: CATRANSLATOR
+      schema: ANALYTICS
+      table: CUSTOMERS
+    dimensions:
+      - name: CUSTOMER_ID
+        synonyms:
+          - '  '
+        description: Unique identifier for each customer.__
+        expr: CUSTOMER_ID
+        data_type: TEXT
+        sample_values:
+          - 50a2d1c4-d788-4498-a6f7-dd75d4db588f
+          - 438005c2-dd1d-48aa-8bfd-7fb06851b5f8
+          - 5261268c-aa94-438a-921a-05efc0d414ac
+          - f8486fce-bc07-4a4f-a6e9-ed6a06ba996c
+          - 341ed9b2-1760-4720-a1b1-42681d273c63
+          - 7e52ce3f-191d-4d27-a0a8-76706fd6173c
+          - 0000bd8e-496c-42aa-9430-fea7f9bd6a96
+          - 3b47f466-5256-41a1-951c-efee13597676
+          - 2480125c-2d37-405c-96b9-ca32b2c75b33
+          - 1bf35f99-4627-4c80-a5f8-0797538eaf54
+          - 3f1fc492-e8ed-4840-97a0-a56592fdc1d9
+          - 24ea0325-a7d6-4388-b86c-7b51e5805b26
+          - 18b69140-479d-44b6-8369-04a49414f975
+          - b0da7a9b-77d7-407d-8506-51705503fa05
+          - c5dde410-2c70-486e-bb0d-974b2798825b
+          - 5a589b0f-69ac-4256-aea8-df379845f417
+          - 827eed18-8ab1-4e5d-ab00-5d8ac9bb168b
+          - 9eac28b8-2264-4e48-9c2c-b3f7384bc20a
+          - a311b0c8-1b63-4405-8097-09a984512389
+          - 2660b7ac-6c46-4392-8ddc-26194c532341
+          - 861181e6-5d97-48a8-bbe4-226caa976140
+          - 848485f0-198f-4efa-8335-707db71a7434
+          - 1076f00e-5dd1-41d1-b2a5-0c59e18a5310
+          - ddd9ed38-6351-4568-b08c-8f6c92cb84a8
+          - d31efffd-fdc4-4168-ac26-83b67a6c5c47
+      - name: CUSTOMER_NAME
+        synonyms:
+          - '  '
+        description: Customer Names__
+        expr: CUSTOMER_NAME
+        data_type: TEXT
+        sample_values:
+          - Stephanie Love
+          - Kristi Keller
+          - Allison Oliver
+          - Nancy Austin
+          - Christy Rios
+          - Michael Mendoza
+          - Beverly Peters
+          - Connie Harrison
+          - Carly Harris
+          - Russell Mitchell
+          - Ashley Santiago
+          - Yvonne Watson
+          - Nichole Brown
+          - Jessica Valdez
+          - Johnny Ryan
+          - Kristin Mcintyre
+          - Larry Ward
+          - Karen Sanchez
+          - Ray Mitchell
+          - Timothy Waller
+          - Tyrone Ryan
+          - Martin Barnes
+          - Martha Pineda DDS
+          - Tina Collins
+          - Lindsey Hunter
+      - name: CUSTOMER_TYPE
+        synonyms:
+          - '  '
+        description: Customer Type__
+        expr: CUSTOMER_TYPE
+        data_type: TEXT
+        sample_values:
+          - returning
+          - new
+    time_dimensions:
+      - name: FIRST_ORDERED_AT
+        synonyms:
+          - '  '
+        description: Date of the customer's first ordered at.__
+        expr: FIRST_ORDERED_AT
+        data_type: DATE
+        sample_values:
+          - '2016-09-01'
+          - '2016-09-02'
+          - '2016-09-03'
+          - '2016-09-06'
+          - '2016-09-05'
+          - '2016-09-17'
+          - '2016-09-21'
+          - '2016-11-05'
+          - '2016-10-25'
+          - '2016-11-22'
+      - name: LAST_ORDERED_AT
+        synonyms:
+          - '  '
+        description: Date of the customer's most recent order.__
+        expr: LAST_ORDERED_AT
+        data_type: DATE
+        sample_values:
+          - '2017-08-31'
+          - '2017-08-30'
+          - '2017-08-28'
+          - '2017-08-29'
+          - '2017-08-26'
+          - '2017-08-05'
+          - '2017-06-19'
+          - '2017-06-20'
+          - '2017-08-20'
+          - '2017-08-22'
+    measures:
+      - name: COUNT_LIFETIME_ORDERS
+        synonyms:
+          - '  '
+        description: Total number of orders placed by each customer throughout their
+          lifetime.__
+        expr: COUNT_LIFETIME_ORDERS
+        data_type: NUMBER
+        sample_values:
+          - '151'
+          - '177'
+          - '207'
+          - '142'
+          - '99'
+          - '182'
+          - '190'
+          - '176'
+          - '154'
+          - '150'
+      - name: LIFETIME_SPEND_PRETAX
+        synonyms:
+          - '  '
+        description: Lifetime Spend (Pretax)__
+        expr: LIFETIME_SPEND_PRETAX
+        data_type: NUMBER
+        sample_values:
+          - '1599.00'
+          - '987.00'
+          - '1147.00'
+          - '797.00'
+          - '1033.00'
+          - '1655.00'
+          - '1040.00'
+          - '979.00'
+          - '1614.00'
+          - '1508.00'
+      - name: LIFETIME_TAX_PAID
+        synonyms:
+          - '  '
+        description: Lifetime Tax Paid by Customer__
+        expr: LIFETIME_TAX_PAID
+        data_type: NUMBER
+        sample_values:
+          - '95.76'
+          - '59.22'
+          - '68.82'
+          - '47.82'
+          - '121.06'
+          - '61.98'
+          - '99.16'
+          - '62.40'
+          - '58.74'
+          - '60.18'
+      - name: LIFETIME_SPEND
+        synonyms:
+          - '  '
+        description: Lifetime Spend of Customers__
+        expr: LIFETIME_SPEND
+        data_type: NUMBER
+        sample_values:
+          - '1694.76'
+          - '1046.22'
+          - '1215.82'
+          - '844.82'
+          - '2141.06'
+          - '1094.98'
+          - '1754.16'
+          - '1102.40'
+          - '1598.35'
+          - '1037.74'
